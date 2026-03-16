@@ -81,7 +81,16 @@ Successful run indicators:
 - `eda.ipynb`:
  
 
-- `baseline.ipynb`:
+- `baseline.ipynb`: 
+    > downloads necesary libraries, prints library versions and creates data folder for fastf1 (fastf1_cache) if not created yet.
+
+    > prints columns, shapes and first few rows of transformed fastf1 dataset.
+
+    > prints analysis of years, prints training and test dataset shapes.
+
+    > prints accuracy, precission, recall, f1-score, ROC-AUC, confussion matrix for LogisticalRegression model, as well as the ROC_AUC curve.
+
+    > prints accuracy, precission, recall, f1-score and support fro KNN model
 
  
 
