@@ -138,8 +138,8 @@ REQUIRED — every submission must have these:
 + All team members listed in README.md
 
 STRETCH — optional, rewarded if present:
-□ baseline.ipynb — Additional metrics (Precision, Recall, F1, ROC-AUC)
-□ baseline.ipynb — Second baseline (sklearn model or second heuristic)
-□ baseline.ipynb — Metric choice justification
-□ PROMPTS.md — Documents how you learned/computed the stretch metrics via AI
++ baseline.ipynb — Additional metrics (Precision, Recall, F1, ROC-AUC)
++ baseline.ipynb — Second baseline (sklearn model or second heuristic)
++ baseline.ipynb — Metric choice justification
++ PROMPTS.md — Documents how you learned/computed the stretch metrics via AI
 
