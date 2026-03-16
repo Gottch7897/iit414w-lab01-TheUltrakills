@@ -39,20 +39,19 @@ pip --version
 ```
 
 ## (d) How To Run
-Run notebooks in this order because `data_check.ipynb` depends on environment and package checks first.
+Run notebooks in this order.
 
 ### Required Run Order
-1. `setup_check.ipynb`
-2. `data_check.ipynb`
+No required run order.
 
 ### Command Examples
 ```bash
 
 # run notebook 1
-python -m jupyter nbconvert --to notebook --execute --inplace setup_check.ipynb
+python -m jupyter nbconvert --to notebook --execute --inplace eda.ipynb
 
 # run notebook 2
-python -m jupyter nbconvert --to notebook --execute --inplace data_check.ipynb
+python -m jupyter nbconvert --to notebook --execute --inplace baseline.ipynb
 ```
 
 ```bash
@@ -61,67 +60,53 @@ python -m notebook
 ```
 
 Notes:
-- Keep notebook order: `setup_check.ipynb` then `data_check.ipynb`.
 - Internet access is required for FastF1 session loading and Jolpica API requests.
 
 ## (e) Problems Encountered
 Documented issues from this environment and setup flow:
 
 ### Problem 1
-- Issue: `conda --version` failed because conda was not recognized.
-- Cause: Conda is not installed or not available in `PATH` on this machine.
-- Fix: Used a virtual environment with `requirements.txt` instead:
-	- `python -m venv .venv`
-	- `.\.venv\Scripts\Activate.ps1`
-	- `pip install -r requirements.txt`
-
-### Problem 2
-- Issue: No `environment.yml` was available, so conda-based setup instructions were not runnable.
-- Cause: Repository currently provides dependency specification through `requirements.txt` only.
-- Fix: Updated setup process to a pip/venv workflow and validated with:
-  - `python --version`
-  - `pip --version`
-  - notebook execution commands in Section (d)
-
-### Problem 3
-- Issue: `python -m jupyter nbconvert` failed with `No module named jupyter` after creating the `.venv`.
-- Cause: `jupyter` and `nbconvert` were not listed in `requirements.txt`, so they were not installed as part of the standard setup.
-- Fix: Added `jupyter>=1.0` and `nbconvert>=7.0` to `requirements.txt`, then ran:
-  - `pip install -r requirements.txt`
+- Issue: 
+- Cause: 
+- Fix: 
 
 ## (f) Expected Outputs
 Successful run indicators:
 
-- `setup_check.ipynb`:
-  - Reproducibility header: `Python  : 3.14.2`, `NumPy   : 2.4.3`, `Seed    : 414`
-  - Dependency check: `All required packages already installed ✓`
-  - 6-row package/version table:
-    ```
-    package  version
-      numpy    2.4.3
-     pandas    2.3.3
-    sklearn    1.8.0
- matplotlib   3.10.8
-    seaborn   0.13.2
-     fastf1    3.8.1
-    ```
-  - FastF1 cache path printed and Git version + recent commits listed.
+- `eda.ipynb`:
+ 
 
-- `data_check.ipynb`:
-  - FastF1 loads 2024 Bahrain Race for 20 drivers with INFO log output.
-  - Session metadata: `Session event: Bahrain Grand Prix 2024`, `Session: Race`, `Number of laps in the result: 20`
-  - Lap data head (5 rows with VER/Red Bull Racing laps) printed.
-  - API request status: `API request successful (code 200).`
-  - Standings: `Number of driver standings records: 24`
-  - Top 3: Max Verstappen (437 pts), Lando Norris (374 pts), Charles Leclerc (356 pts)
+- `baseline.ipynb`:
+ 
 
 ---
 
 ## Submission Checklist
-- [x] Header is fully filled out
-- [x] System info includes exact versions
-- [x] Setup commands are complete and tested
-- [x] Notebook run order is stated clearly
-- [x] At least 2 real problems + fixes documented
-- [x] Expected outputs are specific and match actual results
+REQUIRED — every submission must have these:
+□ eda.ipynb — Kernel → Restart & Run All completes without errors
+□ eda.ipynb — At least 5 research questions with Question → Plot → Interpretation → Decision
+□ eda.ipynb — Temporal split defined with written rationale
+□ eda.ipynb — Class balance analysis for target variable
+□ eda.ipynb — At least 1 explicit trap check (spurious correlation, survivorship, anchoring)
+□ eda.ipynb — 1-3-1 summary in final Markdown cell
+□ baseline.ipynb — Kernel → Restart & Run All completes without errors
+□ baseline.ipynb — 1 domain heuristic baseline (rule-based, no ML code)
+□ baseline.ipynb — Accuracy reported on validation set (not training set)
+□ baseline.ipynb — Reflection: "What could accuracy be hiding?"
+□ baseline.ipynb — Lower bound statement: "Lab 2 model must beat this"
+□ baseline.ipynb — No post-race features used (leakage check)
+□ DATA_QUALITY_LOG.md — At least 5 issues documented
+□ PROMPTS.md — Complete with at least 2 entries (or "no AI used" statement)
+□ README.md — Runbook that works in <10 minutes
+□ environment.yml or requirements.txt — Complete and working
+□ .gitignore — Excludes cache, checkpoints, __pycache__
+□ RANDOM_SEED = 414 in both notebooks
+□ Canvas text entry — Repo URL + 3-sentence 1-3-1 summary
+□ All team members listed in README.md
+
+STRETCH — optional, rewarded if present:
+□ baseline.ipynb — Additional metrics (Precision, Recall, F1, ROC-AUC)
+□ baseline.ipynb — Second baseline (sklearn model or second heuristic)
+□ baseline.ipynb — Metric choice justification
+□ PROMPTS.md — Documents how you learned/computed the stretch metrics via AI
 
