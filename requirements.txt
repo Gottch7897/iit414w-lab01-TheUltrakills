@@ -1,2 +1,18 @@
+# Required packages for course notebooks (data_check.ipynb, setup_check.ipynb)
+#
+# Recommended install procedure (Windows PowerShell):
+#   py -m venv .venv
+#   .\.venv\Scripts\Activate.ps1
+#   python -m pip install --upgrade pip
+#   python -m pip install -r requirements.txt
+
 ipykernel==6.29.3
-numpy==1.26.4
+numpy==2.4.3
+pandas==2.3.3
+scikit-learn==1.8.0
+fastf1==3.8.1
+matplotlib==3.10.8
+seaborn==0.13.2
+requests==2.32.5
+jupyter==1.1.1
+nbconvert==7.17.0
