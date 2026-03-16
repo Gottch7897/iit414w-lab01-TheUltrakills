@@ -79,18 +79,33 @@ Documented issues from this environment and setup flow:
 Successful run indicators:
 
 - `eda.ipynb`:
+    >All libraries and imports are succesfully installed, data folder fastf1_cache succesfully created.
+    
+    >Initial dataset shape print should be (1359x18) and prints head() with no problems.
+    
+    >All investigation questions print out their plot.
+    
+    >Temporal pattern analysis prints two plots: "Top 10 Rate by Season" and "Feature distribution Shift by Season".
+    
+    >Feature correlation analysis prints "Feature Correlation with Top 10 Target" plot succesfully.
+    
+    >Trap Awareness prints two plots: "Survivorship Bias Check: Baseline Accuracy" and "DNF Rate by Baseline Prediction Group".
+    
+    >Explicit temporal train/val/test split prints "Temporal Split Sizes and Class Rates" plot succesfully.
+    
+    >Data Quality Audit prints two plots, all columns should have 0% missingness.
  
 
 - `baseline.ipynb`: 
-    > downloads necesary libraries, prints library versions and creates data folder for fastf1 (fastf1_cache) if not created yet.
+    > Downloads necesary libraries, prints library versions and creates data folder for fastf1 (fastf1_cache) if not created yet.
 
-    > prints columns, shapes and first few rows of transformed fastf1 dataset.
+    > Prints columns, shapes and first few rows of transformed fastf1 dataset.
 
-    > prints analysis of years, prints training and test dataset shapes.
+    > Prints analysis of years, prints training and test dataset shapes.
 
-    > prints accuracy, precission, recall, f1-score, ROC-AUC, confussion matrix for LogisticalRegression model, as well as the ROC_AUC curve.
+    > Prints accuracy, precission, recall, f1-score, ROC-AUC, confussion matrix for LogisticalRegression model, as well as the ROC_AUC curve.
 
-    > prints accuracy, precission, recall, f1-score and support fro KNN model
+    > Prints accuracy, precission, recall, f1-score and support fro KNN model.
 
  
 
@@ -107,19 +122,19 @@ REQUIRED — every submission must have these:
 + eda.ipynb — Class balance analysis for target variable
 + eda.ipynb — At least 1 explicit trap check (spurious correlation, survivorship, anchoring)
 + eda.ipynb — 1-3-1 summary in final Markdown cell
-□ baseline.ipynb — Kernel → Restart & Run All completes without errors
-□ baseline.ipynb — 1 domain heuristic baseline (rule-based, no ML code)
-□ baseline.ipynb — Accuracy reported on validation set (not training set)
-□ baseline.ipynb — Reflection: "What could accuracy be hiding?"
-□ baseline.ipynb — Lower bound statement: "Lab 2 model must beat this"
-□ baseline.ipynb — No post-race features used (leakage check)
++ baseline.ipynb — Kernel → Restart & Run All completes without errors
++ baseline.ipynb — 1 domain heuristic baseline (rule-based, no ML code)
++ baseline.ipynb — Accuracy reported on validation set (not training set)
++ baseline.ipynb — Reflection: "What could accuracy be hiding?"
++ baseline.ipynb — Lower bound statement: "Lab 2 model must beat this"
++ baseline.ipynb — No post-race features used (leakage check)
 + DATA_QUALITY_LOG.md — At least 5 issues documented
 + PROMPTS.md — Complete with at least 2 entries (or "no AI used" statement)
-□ README.md — Runbook that works in <10 minutes
++ README.md — Runbook that works in <10 minutes
 + environment.yml or requirements.txt — Complete and working
 + .gitignore — Excludes cache, checkpoints, __pycache__
 + RANDOM_SEED = 414 in both notebooks
-□ Canvas text entry — Repo URL + 3-sentence 1-3-1 summary
++ Canvas text entry — Repo URL + 3-sentence 1-3-1 summary
 + All team members listed in README.md
 
 STRETCH — optional, rewarded if present:
