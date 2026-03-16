@@ -66,9 +66,14 @@ Notes:
 Documented issues from this environment and setup flow:
 
 ### Problem 1
-- Issue: 
-- Cause: 
-- Fix: 
+- Issue: model.fit returns an error because data is categorical 
+- Cause: LoisticRegression doesn't work with string values
+- Fix: using "get_dummies" to transform the categorical data into numerical
+
+### Problem 2
+- Issue: Verification of Leackage
+- Cause: dataset is not very clear about pre and post-race parameters
+- Fix: used the table and instructions provided on W02 Monday's notebook 
 
 ## (f) Expected Outputs
 Successful run indicators:
@@ -77,6 +82,7 @@ Successful run indicators:
  
 
 - `baseline.ipynb`:
+
  
 
 ---
