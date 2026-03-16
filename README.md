@@ -82,27 +82,30 @@ Successful run indicators:
 ---
 
 ## Submission Checklist
+
 REQUIRED — every submission must have these:
-□ eda.ipynb — Kernel → Restart & Run All completes without errors
-□ eda.ipynb — At least 5 research questions with Question → Plot → Interpretation → Decision
-□ eda.ipynb — Temporal split defined with written rationale
-□ eda.ipynb — Class balance analysis for target variable
-□ eda.ipynb — At least 1 explicit trap check (spurious correlation, survivorship, anchoring)
-□ eda.ipynb — 1-3-1 summary in final Markdown cell
+
++ eda.ipynb — Kernel → Restart & Run All completes without errors
+
++ eda.ipynb — At least 5 research questions with Question → Plot → Interpretation → Decision
++ eda.ipynb — Temporal split defined with written rationale
++ eda.ipynb — Class balance analysis for target variable
++ eda.ipynb — At least 1 explicit trap check (spurious correlation, survivorship, anchoring)
++ eda.ipynb — 1-3-1 summary in final Markdown cell
 □ baseline.ipynb — Kernel → Restart & Run All completes without errors
 □ baseline.ipynb — 1 domain heuristic baseline (rule-based, no ML code)
 □ baseline.ipynb — Accuracy reported on validation set (not training set)
 □ baseline.ipynb — Reflection: "What could accuracy be hiding?"
 □ baseline.ipynb — Lower bound statement: "Lab 2 model must beat this"
 □ baseline.ipynb — No post-race features used (leakage check)
-□ DATA_QUALITY_LOG.md — At least 5 issues documented
-□ PROMPTS.md — Complete with at least 2 entries (or "no AI used" statement)
++ DATA_QUALITY_LOG.md — At least 5 issues documented
++ PROMPTS.md — Complete with at least 2 entries (or "no AI used" statement)
 □ README.md — Runbook that works in <10 minutes
-□ environment.yml or requirements.txt — Complete and working
-□ .gitignore — Excludes cache, checkpoints, __pycache__
-□ RANDOM_SEED = 414 in both notebooks
++ environment.yml or requirements.txt — Complete and working
++ .gitignore — Excludes cache, checkpoints, __pycache__
++ RANDOM_SEED = 414 in both notebooks
 □ Canvas text entry — Repo URL + 3-sentence 1-3-1 summary
-□ All team members listed in README.md
++ All team members listed in README.md
 
 STRETCH — optional, rewarded if present:
 □ baseline.ipynb — Additional metrics (Precision, Recall, F1, ROC-AUC)
