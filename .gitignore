@@ -5,3 +5,4 @@ __pycache__
 /cache
 /data_cache
 /venv
+lab1/fastf1_cache/fastf1_http_cache.sqlite
