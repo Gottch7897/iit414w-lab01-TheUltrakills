@@ -1,5 +1,5 @@
 # PROMPTS.md — AI Usage Log
-# IIT414W · [TheUltrakills] · [Lab01]
+# IIT414W · [TheUltrakills] · [Lab02]
 # One entry per significant AI interaction. Keep entries honest and specific.
 
 ---
