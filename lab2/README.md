@@ -62,6 +62,15 @@ Notes:
 
 ## (e) Problems Encountered
 
+### Problem 1
+- Issue: ERROR: "Found input variables with inconsistent numbers of samples: [440, 479]"
+- Cause: comparisson between "y_val" and "y_pred" 
+- Fix: changed y_val for y_test, as the model was trained on the latter
+
+### Problem 2
+- Issue: 
+- Cause: 
+- Fix: 
 
 ## (f) Expected Outputs
 Successful run indicators:
