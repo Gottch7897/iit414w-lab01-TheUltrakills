@@ -1,9 +1,10 @@
 # Lab 1 vs Lab 2 — Comparison Table
-## [Your Name(s)]
+## [Martín Gottschalk, Marcial Ibañez]
+
 | Model / Baseline | Accuracy | Precision | Recall | F1 | ROC-AUC |
 |------------------------|----------|-----------|--------|-------|---------|
-| Majority class (Lab 1) | 0.XX | 0.XX | 0.XX | 0.XX | 0.XX |
-| Domain heuristic (Lab 1)| 0.XX | 0.XX | 0.XX | 0.XX | 0.XX |
+| Majority class (Lab 1) | 0.50 | 0.0 | 0.0 | 0.0 | 0.5 |
+| Domain heuristic (Lab 1)| 0.67 | 0.62 | 0.89 | 0.73 | 0.67 |
 | Prior-period (if done) | 0.XX | 0.XX | 0.XX | 0.XX | 0.XX |
 | Lab 2 model (LogReg/DT) | 0.XX | 0.XX | 0.XX | 0.XX | 0.XX |
 ## Primary metric: [ACCURACY] (justified in Lab 1)
