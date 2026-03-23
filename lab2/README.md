@@ -74,6 +74,7 @@ Notes:
 
 ## (f) Expected Outputs
 Successful run indicators:
+- All cells of lab02_feature_engineering.ipynb run smoothly, correctly loading libraries, creating the cache and the regression model.
 
 
  
@@ -83,4 +84,6 @@ Successful run indicators:
 ## Submission Checklist
 
 REQUIRED — every submission must have these:
+
+-CHECKLIST NOT PROVIDED
 

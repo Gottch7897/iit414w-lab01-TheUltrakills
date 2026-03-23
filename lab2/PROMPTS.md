@@ -56,6 +56,30 @@ I stopped it here.
 **Final Decision:**
 USED: Small code bit, useful for the heuristic.
 
+## Entry [2] — [LAB2, asked to "give some ideas for domain heuristics in the context of Formula 1"] [2026-03-21]
+Needed some ideas for domain heuristics to work the lab with.
+
+**Prompt(s):**
+Prompt 1: "[Give me some ideas for domain heuristics in the context of Formula 1.]"
+
+**Relevant Output:**
+"Great domain heuristics for Formula 1 can be framed around pace, racecraft, strategy, and context effects. Here are useful ones you can turn into features or rules:"
+
+Then it gave 35 different alternatives
+
+"If you want, I can next give you a concrete table schema and a minimal logistic-regression baseline recipe you can drop directly into your lab workflow."
+
+**Validation:**
+# Required. Describe specific tests — what you ran, on what data, what result.
+- Test 1: No tests ran as no code was implemented based on this prompt.
+
+**Adaptations:**
+- Adapted with new prompt: "What other baselines could be used that influence the final top 10 finishers?" Unsatisfied with new results.
+
+**Final Decision:**
+NOT USED. The AI failed to consider the main objective of helping predict our target, so their options were a general case and not adapted to this. Even when corrected, their baselines felt lacking.
+
+
 
 
 ---
