@@ -6,7 +6,7 @@
 | Majority class (Lab 1) | 0.50 | 0.0 | 0.0 | 0.0 | 0.5 |
 | Domain heuristic (Lab 1)| 0.67 | 0.62 | 0.89 | 0.73 | 0.67 |
 | Prior-period (if done) | 0.XX | 0.XX | 0.XX | 0.XX | 0.XX |
-| Lab 2 model (LogReg/DT) | 0.XX | 0.XX | 0.XX | 0.XX | 0.XX |
+| Lab 2 model (LogReg/DT) | 0.73 | 0.72 | 0.74 | 0.73 | 0.73 |
 ## Primary metric: [ACCURACY] (justified in Lab 1)
 ## Interpretation (3–5 sentences)
 [Did the model beat the baselines? By how much? Which baseline was hardest to beat? What does this tell you about the value of your features vs. the baseline rules? If the model did NOT beat a baseline, what does that mean and what would you change?]

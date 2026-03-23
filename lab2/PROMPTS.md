@@ -46,7 +46,6 @@ I’ve updated the cell; next I’ll run it to confirm the heuristic now execute
 I stopped it here.
 
 **Validation:**
-# Required. Describe specific tests — what you ran, on what data, what result.
 - Test 1: ran the code succesfully
 - Test 2: looked at the dataframe to confirm it was all correct
 
@@ -80,6 +79,42 @@ Then it gave 35 different alternatives
 NOT USED. The AI failed to consider the main objective of helping predict our target, so their options were a general case and not adapted to this. Even when corrected, their baselines felt lacking.
 
 
+## Entry [3] — ["Lag feature refining"] · [2026-03-23]
+
+**Context:**
+After thinking of my baseline's implementation, I realized it wasn't an actual Lag Feature. The idea was there, but the execution was not. THerefore, I needed a quick fix to the code so that it would actually be correct.
+
+**Prompt(s):**
+Prompt 1: "[Transform feature 1 (baseline 1) into a Lag Feature. As it currently stands, it uses the current grid position. I want it to use data across time (to apply lag over).]"
+
+**Relevant Output:**
+"I’m now editing that baseline cell so the prediction is based on each driver’s previous-race grid position (lag-1) instead of the current race grid.
+
+I’ve updated the core logic; next I’ll adjust the feature title/description text so the notebook clearly documents that this is now a lagged feature."
+
+CODE: 
+"df_heuristic1 = df_heuristic1.sort_values(['Year', 'Round']).copy()
+
+# Lag-1 grid position by driver (uses only prior race information).
+df_heuristic1['GridPosition_lag1'] = (
+    df_heuristic1.groupby('FullName', sort=False)['GridPosition'].shift(1)
+)
+
+# For first available race per driver, assume a back-grid prior.
+df_heuristic1['GridPosition_lag1'] = df_heuristic1['GridPosition_lag1'].fillna(20)
+...
+df_heuristic1['HeuristicPred'] = (df_heuristic1['GridPosition_lag1'] <= 10).astype(int)
+"
+
+**Validation:**
+- Test 1: ran the code succesfully
+- Test 2: looked at the code to see the changes, and if it actually made a Lag Feature.
+
+**Adaptations:**
+- None made, as it just wrote over my base code.
+
+**Final Decision:**
+USED: Small code bit. Glanced over and makes sense as a lag feature (uses shift)
 
 
 ---
