@@ -4,7 +4,7 @@
 - Full Names: `Martín Gottschalk, Marcial Ibañez`
 - GitHub Usernames: `Gottch7897, MarcialIbanezS`
 - Course Code: `IIT414W`
-- Date: `Fill in later`
+- Date: `2026-03-23`
 
 ## (b) System Info
 - Operating System (name + version): `Microsoft Windows 11 Home Single Language (10.0.26200)`
@@ -64,13 +64,19 @@ Notes:
 
 ### Problem 1
 - Issue: ERROR: "Found input variables with inconsistent numbers of samples: [440, 479]"
-- Cause: comparisson between "y_val" and "y_pred" 
-- Fix: changed y_val for y_test, as the model was trained on the latter
+- Cause: comparisson between "y_val" and "y_pred". 
+- Fix: changed "y_val" for "y_test", as the model was trained on the latter.
 
 ### Problem 2
-- Issue: 
-- Cause: 
-- Fix: 
+- Issue: Majority class and Domain Heuristic (lab1 redone model) gave the same results.
+- Cause: Using the same DummyClassifier for both ("most_frequent").
+- Fix: Changed the DomianHeuristic so that it uses LogisticRegression.
+
+
+### Problem 3
+- Issue: Baseline 2 (driver rolling form) produced missing values in the engineered featureDriverTop10RateLast5, which caused unstable training and potential model errors.
+- Cause: For each driver’s first race(s), there is not enough historical data after shift(1).rolling(5), so the rolling feature becomes NaN.
+- Fix: Replaced missing rolling values with a training-set prior (global_top10_prior) before evaluation, so every row has a valid numeric feature and Logistic Regression can train consistently.
 
 ## (f) Expected Outputs
 Successful run indicators:
