@@ -72,6 +72,12 @@ Notes:
 - Cause: Using the same DummyClassifier for both ("most_frequent").
 - Fix: Changed the DomianHeuristic so that it uses LogisticRegression.
 
+
+### Problem 3
+- Issue: Baseline 2 (driver rolling form) produced missing values in the engineered featureDriverTop10RateLast5, which caused unstable training and potential model errors.
+- Cause: For each driver’s first race(s), there is not enough historical data after shift(1).rolling(5), so the rolling feature becomes NaN.
+- Fix: Replaced missing rolling values with a training-set prior (global_top10_prior) before evaluation, so every row has a valid numeric feature and Logistic Regression can train consistently.
+
 ## (f) Expected Outputs
 Successful run indicators:
 - All cells of lab02_feature_engineering.ipynb run smoothly, correctly loading libraries, creating the cache and the regression model.
