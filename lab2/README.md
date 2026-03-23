@@ -76,9 +76,6 @@ Notes:
 Successful run indicators:
 - All cells of lab02_feature_engineering.ipynb run smoothly, correctly loading libraries, creating the cache and the regression model.
 
-
- 
-
 ---
 
 ## Submission Checklist
