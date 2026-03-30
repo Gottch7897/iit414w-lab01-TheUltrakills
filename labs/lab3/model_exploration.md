@@ -35,3 +35,4 @@ The best model in this comparison is the Random Forest (n_estimators=100, max_de
 ## 4. One Honest Limitation
 One honest limitation is that the best model (Random Forest) is less interpretable and still shows a non-trivial generalization gap (train MAE 2.482 vs test MAE 2.838), which indicates some sensitivity to the training set. In practice, this means the model may be less reliable when race conditions shift (new circuits, unusual weather, or regulation changes), because tree-based patterns learned from past seasons may not transfer perfectly. So even with the best MAE in this notebook, predictions should be used as decision support, not as a standalone race-strategy truth.
 
+
