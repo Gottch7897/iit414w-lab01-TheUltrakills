@@ -1,8 +1,10 @@
 # PROMPTS.md — AI Usage Log
-# IIT414W · [TheUltrakills] · [Lab02]
+# IIT414W · [TheUltrakills] · [Lab03]
 # One entry per significant AI interaction. Keep entries honest and specific.
 
 ---
+PROMPTS.md demonstrates: (a) Traceability — claims map to specific notebook outputs ("AI suggested Ridge alpha=0.1; I tested alpha=0.1/1.0/10.0 and results are in cell 15"). (b) Operational detail — exact error messages, specific metric values, cell references. (c) AI failure with specifics — what went wrong, why, what you did instead. (d) Critical distance — a specific AI limitation that affected THIS lab (not generic "AI can hallucinate").
+
 
 ## Entry [EXAMPLE] — [Short title, e.g. "DNF handling for rolling avg"] · [YYYY-MM-DD]
 
