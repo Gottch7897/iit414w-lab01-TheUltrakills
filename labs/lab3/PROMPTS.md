@@ -91,3 +91,61 @@ Prompt 1: "add a  leakage-safe version of DriverReliability and ConstructorStren
 Used - the code now is independant of later test years, freeing itself from leackage.
 
 -----
+
+## Entry [3] — ["Consistency check across artifacts"] · [2026-04-20]
+
+**Context:**
+Before final submission, we needed to verify that the narrative artifacts matched the implemented model. The goal was to confirm consistency between framing_decision.md, memo.md, and the notebook outputs.
+
+**Prompt(s):**
+Prompt 1: "es lo realizado consistente con el modelo? compara framing decision, memo y lab3 model"
+
+**Relevant Output:**
+- The review confirmed alignment on business question (DNF risk), target (DNF binary), metric (F1), and best-model recommendation (Random Forest).
+- It also noted minor editorial issues (for example, spelling in notebook headings) and recommended running all cells before submission.
+
+**Operational detail:**
+- Test 1: Checked target consistency: `TARGET = "DNF"` in notebook versus framing and memo text.
+- Test 2: Checked metric consistency: F1 usage in notebook cells and F1 reported in memo.
+- Test 3: Checked result consistency: Train/Val/Test values (including RF test F1 0.658 and XGB 0.655) matched memo and comparison table.
+
+**Adaptations. What went wrong:**
+- No technical mismatch was found.
+- Minor wording and spelling issues were identified as editorial (not modeling) issues.
+
+**Critical distance**
+- AI could confirm consistency quickly, but it may overlook context if outputs are stale or not re-executed. Manual verification of saved notebook outputs is still necessary.
+
+**Final Decision:**
+Used — the consistency check was accepted and used to validate final documentation coherence.
+
+-----
+
+## Entry [4] — ["Editorial quality review and prompt logging"] · [2026-04-20]
+
+**Context:**
+After consistency was confirmed, the next step was to review editorial quality and keep a transparent record of AI interactions. This entry documents the request to improve writing quality control and to log both prompts in PROMPTS.md.
+
+**Prompt(s):**
+Prompt 1: "Revisa la calidad editorial, guarda este prompt y el anterior en PROMPTS.md"
+
+**Relevant Output:**
+- Editorial review was completed for memo.md and framing_decision.md.
+- Two prompt-traceability entries were added to PROMPTS.md (consistency check and editorial review request).
+
+**Operational detail:**
+- Test 1: Read memo.md and framing_decision.md to check clarity, tone, and terminology.
+- Test 2: Verified that writing remains consistent with DNF classification framing and F1 evaluation.
+- Test 3: Added structured entries with context, prompts, operational checks, and final decision.
+
+**Adaptations. What went wrong:**
+- No blocking issue occurred.
+- Main adjustment was ensuring detailed traceability while keeping entries concise.
+
+**Critical distance**
+- AI can improve editorial quality, but final tone and authenticity should still be reviewed by the author to match course expectations and personal writing style.
+
+**Final Decision:**
+Used — prompt logging and editorial QA were incorporated into the final documentation workflow.
+
+-----

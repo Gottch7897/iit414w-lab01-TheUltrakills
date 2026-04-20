@@ -4,7 +4,6 @@
 - Full Names: `Martín Gottschalk, Marcial Ibañez`
 - GitHub Usernames: `Gottch7897, MarcialIbanezS`
 - Course Code: `IIT414W`
-
 - Date: `2026-04-20`
 
 ## (b) System Info
