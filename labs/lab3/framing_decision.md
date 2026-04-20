@@ -1,17 +1,18 @@
-#
-framing_decision.md must contain:
+# Framing Decision
 
-1.    Business question — What would a team principal ask that your model answers? (1–2 sentences)
-2.    Target variable — What you predict and how it's defined. (1 sentence)
-3.    Metric — What metric you use and why it's appropriate for this framing. (2–3 sentences)
-4.    Rejected alternative — At least one other framing you considered and why you rejected it. (2–3 sentences)
+## 1) Business question
+Before each race weekend, a team principal wants to know: which drivers are at higher risk of DNF (Did Not Finish), so the team can adjust strategy risk, pit flexibility, and contingency planning. The model supports this by estimating DNF risk from pre-race and historical context.
 
-This file is short (half a page) but high-value: it's where the grader first assesses whether you understand what you're building and why.
+## 2) Target variable
+The target is DNF (binary classification), defined as 1 when the race status is not "Finished" and 0 otherwise.
 
-You must justify your choice in a dedicated section of your submission (framing_decision.md). The justification must connect to a plausible business question that a team principal would ask. This is NOT a throwaway section — it is graded under C2 (Reasoning) and is the strongest signal of genuine understanding vs. AI-assisted surface compliance.
+## 3) Metric
+The primary metric is F1 score for the DNF class. F1 is appropriate because DNF prediction is an imbalanced problem and we need a balance between precision (not over-flagging risk) and recall (not missing true DNFs). Accuracy alone would be misleading here, since a majority-class strategy can appear strong while failing to identify the minority outcome reliably.
 
+## 4) Rejected alternatives
+We considered a regression framing that predicts points directly (for example, with MAE). We rejected it for this lab objective because race-operations planning in this stage is specifically about failure risk, and a single point estimate can hide whether zero points came from low pace versus non-finish risk.
 
+We also considered a Top-10 binary target. We rejected it because Top-10 focuses on competitive performance, while the current decision problem is reliability and finish risk management. DNF framing aligns better with safety-margin and contingency decisions.
 
-HOW THIS IS SCORED:
-
-Framing justified with a domain-grounded business question and explicit trade-off analysis (e.g., "regression because the team needs point estimates, not just binary outcomes; the cost of being wrong by 3 points is different from being wrong by 15"). WHY column filled for every model with mechanistic reasoning. Best-model justification explains model behavior. Failure modes connected to specific model characteristics. Honest reporting when model loses.
+## Trade-off summary
+This framing sacrifices fine-grained point prediction detail in exchange for a clearer and more actionable reliability signal. Given the operational question in this lab, that trade-off is intentional and appropriate.

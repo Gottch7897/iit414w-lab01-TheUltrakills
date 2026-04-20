@@ -1,13 +1,11 @@
-# IIT414W Lab 02
+# IIT414W Lab 03
 
 ## (a) Header
 - Full Names: `Martín Gottschalk, Marcial Ibañez`
 - GitHub Usernames: `Gottch7897, MarcialIbanezS`
 - Course Code: `IIT414W`
 
-
-HEREHEREHRHEEHEHEEEEEEEEEHEREHEREHREH!!!!
-- Date: `2026-03-23`
+- Date: `2026-04-20`
 
 ## (b) System Info
 - Operating System (name + version): `Microsoft Windows 11 Home Single Language (10.0.26200)`
