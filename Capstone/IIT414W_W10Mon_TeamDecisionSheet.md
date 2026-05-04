@@ -77,7 +77,7 @@ The strategy desk in charge of the pits, during a Friday evening meeting.
 **Concrete scenarios to compare (at least two, with specific values):**
 
 > Scenario A: Bad weather day happens 50% of the time. wet_day = 1
-> Scenario B: ____________________
+> Scenario B: 
 
 **Decision metric for the comparison:**
 > Example: "Difference in calibrated P(is_top10) between Scenario A and Scenario B, with bootstrap 90% confidence interval."
@@ -102,15 +102,15 @@ Limitation #2 we acknowledge: "Strategy choice is not independent of car pace, d
 
 **Three experiments we will run between today and Wednesday 16:20:**
 
-1. ____________________
-2. ____________________
-3. ____________________
+1. Fit a calibrated logistic regression baseline using grid_position and constructor_tier only, then compare it against a model that also includes n_stops.
+2. Run two concrete what-if scenarios for the same driver/circuit pair: one-stop (M-H, longer final stint) versus two-stop (S-M-M, shorter stints).
+3. Test whether adding avg_pit_stop_duration_s changes calibrated P(is_top10) enough to matter in the comparison plan.
 
 **Hypothesis for each (one line each — what do we expect to happen and why?):**
 
-> 1. 
-> 2. 
-> 3. 
+> 1. Adding n_stops should improve the baseline a little because pit strategy is part of the race outcome, but grid position will still remain the strongest single signal.
+> 2. The one-stop and two-stop scenarios should produce different top-10 probabilities because tire freshness and pit-loss trade off differently by stint length.
+> 3. avg_pit_stop_duration_s should have a smaller effect than grid position, but it may still shift the comparison when two strategies are otherwise close.
 
 ---
 
