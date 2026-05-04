@@ -3,9 +3,9 @@
 
 > **Instructions.** Complete this sheet in your team repo as `framing.md`. Every team has 60 minutes during the studio block (14:45–15:45). Required commits: by 15:00 (sections 1–4 populated) and by 15:40 (full sheet + dataset-load notebook). No section can be left blank — write "TBD with rationale" if you are uncertain, but blank entries fail the framing rubric.
 
-**Team name:** ____________________
-**Team members:** ____________________
-**GitHub repo URL:** ____________________
+**Team name:** TheUltrakills
+**Team members:** Martín Gottschalk, Marcial Ibáñez
+**GitHub repo URL:** https://github.com/Gottch7897/iit414w-lab01-TheUltrakills.git
 
 ---
 
