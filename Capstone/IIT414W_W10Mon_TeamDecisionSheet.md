@@ -26,10 +26,9 @@
 
 **Target (LOCKED for Hito 1):** `is_top10`
 
-**Primary metric:** ____________________
+**Primary metric:** F1
 
-**Why this metric for this decision?** (2 sentences max — what does the metric measure that an alternative does not?)
-
+**Why this metric for this decision?** F1 catches precision-recall imbalance if the model is biased toward on class. F1 combines both and penalizes either extreme.s
 > 
 
 **Secondary metric (optional but recommended):** ____________________
