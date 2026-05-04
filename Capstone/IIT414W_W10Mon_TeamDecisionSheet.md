@@ -121,13 +121,12 @@ Limitation #2 we acknowledge: "Strategy choice is not independent of car pace, d
 
 | Member | Owns | Branch / file in repo |
 |---|---|---|
-|  |  |  |
-|  |  |  |
-|  |  |  |
+| Marcial | Dataset preparation, features | main |
+| Martin  | Notebook and modeling | main |
 
 **When does each member commit by?** (We need at least one commit per member per day Tue and Wed.)
-
-> 
+> Marcial: between Monday and Tuesday
+> Martin: between Tuesday and Wednesday, before class. 
 
 ---
 
