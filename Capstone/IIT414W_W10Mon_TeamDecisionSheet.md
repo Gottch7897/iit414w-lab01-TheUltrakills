@@ -14,11 +14,15 @@
 **What strategy decision is this tool supporting?**
 > One sentence. Example: "Whether to recommend a 1-stop vs 2-stop strategy for a midfield-grid driver at a circuit with predictable degradation."
 
+Choose amount of pit stops, depending on current grid placement.
+
 **Who makes this decision?**
 > One sentence. Example: "The strategy desk on the pit wall during a Friday strategy meeting."
+The strategy desk in charge of the pits, during a Friday evening meeting.
 
 **When in the race weekend is the decision made?**
 > One sentence. Example: "Friday evening, after FP2, before parc fermé conditions lock the car setup."
+"Friday evening, after FP2, so the team has time to prepare and adapt for race Sunday"
 
 ---
 
@@ -44,6 +48,7 @@
 
 **Baseline approach (one sentence):**
 > Example: "Calibrated logistic regression on grid_position + constructor_tier + n_stops only."
+""
 
 **Why is this baseline F1-defendable?** (One sentence — could you justify it without ever seeing 2023–2024 data?)
 
