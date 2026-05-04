@@ -76,11 +76,12 @@ The strategy desk in charge of the pits, during a Friday evening meeting.
 
 **Concrete scenarios to compare (at least two, with specific values):**
 
-> Scenario A: Bad weather day happens 50% of the time. wet_day = 1
-> Scenario B: 
+> Scenario A — Aggressive 1‑stop (Dry): grid_position: 10, constructor_avg_finish_pos_5race_rolling: 8.5, n_stops: 1, stint1_length_laps: 40, stint2_length_laps: 0, avg_pit_stop_duration_s: 22, wet_day: 0.
+
+> Scenario B — Conservative 2‑stop (Wet / slower stops): grid_position: 10, constructor_avg_finish_pos_5race_rolling: 8.5, n_stops: 2, stint1_length_laps: 18, stint2_length_laps: 24, avg_pit_stop_duration_s: 26, wet_day: 1.
 
 **Decision metric for the comparison:**
-> Example: "Difference in calibrated P(is_top10) between Scenario A and Scenario B, with bootstrap 90% confidence interval."
+"Difference in calibrated P(is_top10) between Scenario A and Scenario B, with bootstrap 95% confidence interval."
 
 ---
 
@@ -90,11 +91,11 @@ The strategy desk in charge of the pits, during a Friday evening meeting.
 
 Limitation #1 we acknowledge: "Strategy features are observed post-race (see Leakage Rules above). They are scenario inputs in this capstone, not pre-race signals."
 
-> Why it matters for our approach (1 sentence): as our approach is focused on 
+> Why it matters for our approach (1 sentence): as our approach is focused on avg finish position, we need to be careful of them as using them as inputs inflates apparent baseline performance. Treating n_stops as a pre-race predictor will produce optimistic, non-deployable estimates and bias model selection.
 
 Limitation #2 we acknowledge: "Strategy choice is not independent of car pace, driver, weather, and race incidents. Teams must discuss this confounding when they make recommendations."
 
-> Why it matters for our approach (1 sentence): 
+> Why it matters for our approach (1 sentence):  Teams choose strategy based on latent factors (car pace, driver strength, weather, incidents). If our baseline doesn’t model those confounders, the estimated effect of strategy (or its predictive value) mixes causal and correlational signals. That makes counterfactual comparisons unreliable and can mislead decisions that assume the model isolates strategy impact.
 
 ---
 
