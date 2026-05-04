@@ -71,12 +71,12 @@ The strategy desk in charge of the pits, during a Friday evening meeting.
 - [X] `n_stops`
 - [ ] `compound_sequence`
 - [ ] `stint_lengths` (or stint1_length, stint2_length, etc.)
-- [ ] `avg_pit_stop_duration_s`
-- [ ] Other: ____________________
+- [X] `avg_pit_stop_duration_s`
+- [X] Other: `constructor_avg_finish_pos_5race_rolling`
 
 **Concrete scenarios to compare (at least two, with specific values):**
 
-> Scenario A: ____________________
+> Scenario A: Bad weather day happens 50% of the time. wet_day = 1
 > Scenario B: ____________________
 
 **Decision metric for the comparison:**
@@ -88,13 +88,13 @@ The strategy desk in charge of the pits, during a Friday evening meeting.
 
 **Five known dataset limitations are documented in the Capstone Brief. Which TWO most affect our team's specific approach?**
 
-Limitation #1 we acknowledge: ____________________
+Limitation #1 we acknowledge: "Strategy features are observed post-race (see Leakage Rules above). They are scenario inputs in this capstone, not pre-race signals."
 
-> Why it matters for our approach (1 sentence):
+> Why it matters for our approach (1 sentence): as our approach is focused on 
 
-Limitation #2 we acknowledge: ____________________
+Limitation #2 we acknowledge: "Strategy choice is not independent of car pace, driver, weather, and race incidents. Teams must discuss this confounding when they make recommendations."
 
-> Why it matters for our approach (1 sentence):
+> Why it matters for our approach (1 sentence): 
 
 ---
 
