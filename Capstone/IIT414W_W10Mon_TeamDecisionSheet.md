@@ -33,7 +33,7 @@ The strategy desk in charge of the pits, during a Friday evening meeting.
 **Primary metric:** F1
 
 **Why this metric for this decision?** F1 catches precision-recall imbalance if the model is biased toward on class. F1 combines both and penalizes either extreme.s
-> 
+
 
 **Secondary metric (optional but recommended):** ____________________
 
@@ -47,28 +47,28 @@ The strategy desk in charge of the pits, during a Friday evening meeting.
 ## 3. Baseline Plan
 
 **Baseline approach (one sentence):**
-> Example: "Calibrated logistic regression on grid_position + constructor_tier + n_stops only."
-""
+>Logistic regression on: [grid_position, constructor_avg_finish_pos_5race_rolling]
+
 
 **Why is this baseline F1-defendable?** (One sentence — could you justify it without ever seeing 2023–2024 data?)
 
-> 
+> Constructor rolling average is computed from training data (2019–2021) and frozen; no test-set leakage. Captures team form without overfitting.
 
 **Direction check:** higher baseline score means higher predicted P(top10). Yes / No / Explain.
 
-> 
+> "Yes. Better grid position (lower number) and stronger constructor form (lower average finish position) both increase predicted P(top10), which matches F1 operational intuition."
 
 **Expected baseline performance vs docent floor:**
 - Grid-rule docent baseline: Brier = 0.208 on test
 - Calibrated docent model: Brier = 0.132 on test, ROC-AUC = 0.892
-- Our team's best baseline expected to land near: Brier = ____________________
+- Our team's best baseline expected to land near: Likely Brier ≈ 0.17–0.20
 
 ---
 
 ## 4. What-If Comparison Plan
 
 **Strategy variables we will vary:**
-- [ ] `n_stops`
+- [X] `n_stops`
 - [ ] `compound_sequence`
 - [ ] `stint_lengths` (or stint1_length, stint2_length, etc.)
 - [ ] `avg_pit_stop_duration_s`
