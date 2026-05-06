@@ -132,17 +132,16 @@ Limitation #2 we acknowledge: "Strategy choice is not independent of car pace, d
 
 ## 8. Critique Received in Pair Review
 
-> *Filled during Block 5 (15:45–16:05) after the partner team reviews this sheet.*
 
-**Reviewing team:** ____________________
+**Reviewing team:** Model Thinkers
 
 **Concrete critique we received:**
 
-> 
+> "Your Section 6 does not define a fallback if model quality stays near docent baseline levels. The consequence is that on Demo Day you may show results without a defensible decision policy. One thing to do: add a pre-committed fallback rule (calibrated scenario ranking + uncertainty thresholds) for cases where Brier does not clearly improve."
 
 **How we will address this critique by Wednesday:**
 
-> 
+> We shall follow their advice and add a pre-committed fallback rule: if the calibrated model does not improve Brier by at least 0.01 over the docent-calibrated baseline, we will not force a model-based recommendation. Instead, we will rank the pre-defined strategy scenarios by calibrated `P(is_top10)` and only pick a winner when the bootstrap 95% confidence interval for the top-vs-runner-up gap is entirely above 0.03; otherwise we report “no clear winner” and fall back to the conservative 2-stop scenario.
 
 ---
 

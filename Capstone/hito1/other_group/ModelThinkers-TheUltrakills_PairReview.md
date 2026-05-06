@@ -25,8 +25,6 @@ For each question, write a concrete answer based on what you read in the partner
 
 ### Q1. Does their target match their decision context, or is `is_top10` chosen because it's the easiest binary?
 
-> *Look at their Section 1 (decision context) and Section 2 (target). If their decision is about podiums, is_top10 is too coarse. If their decision is about points generally, is_top10 might be reasonable. Is_top10 is locked for Hito 1, but their framing should still acknowledge if a different target would fit better.*
-
 Concrete answer:
 
 Skipped
@@ -97,14 +95,6 @@ TIP: Demo resilience improves a lot when failure conditions are planned in advan
 ---
 
 ## The ONE Concrete Critique We Will Deliver
-
-After answering 3+ questions above, decide: which critique is the most important for this team to hear? Write it as one sentence, framed as an observation, not an attack.
-
-**Format:** "Your [section X] doesn't [specific issue]. The consequence is [what happens in Hito 1 or Demo Day]. One thing to do: [concrete action]."
-
-**Example of a strong critique:** "Your Section 4 lists 'compare 1-stop vs 2-stop' but doesn't specify driver, circuit, or compound. The consequence is your Hito 1 won't have an executable what-if — Wednesday's TA can't help with that. One thing to do: pick three rows from the dataset (one driver, one circuit, three n_stops values) and write the specific scenarios in Section 4 before 15:40."
-
-**Example of a weak critique:** "Your framing is good but could be more specific in Section 4."
 
 > Your Section 6 does not define a fallback if model quality stays near docent baseline levels. The consequence is that on Demo Day you may show results without a defensible decision policy. One thing to do: add a pre-committed fallback rule (calibrated scenario ranking + uncertainty thresholds) for cases where Brier does not clearly improve.
 
