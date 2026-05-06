@@ -12,16 +12,13 @@
 ## 1. Decision Context
 
 **What strategy decision is this tool supporting?**
-> One sentence. Example: "Whether to recommend a 1-stop vs 2-stop strategy for a midfield-grid driver at a circuit with predictable degradation."
 
 Choose amount of pit stops, depending on current grid placement.
 
 **Who makes this decision?**
-> One sentence. Example: "The strategy desk on the pit wall during a Friday strategy meeting."
 The strategy desk in charge of the pits, during a Friday evening meeting.
 
 **When in the race weekend is the decision made?**
-> One sentence. Example: "Friday evening, after FP2, before parc fermé conditions lock the car setup."
 "Friday evening, after FP2, so the team has time to prepare and adapt for race Sunday"
 
 ---
@@ -149,10 +146,10 @@ Limitation #2 we acknowledge: "Strategy choice is not independent of car pace, d
 
 Before you push this to GitHub, verify:
 
-- [ ] Decision context is one sentence, not a paragraph
-- [ ] Target says exactly `is_top10` (not "Top-10" or "P(top10)")
-- [ ] Temporal split shows three blocks: 2019–2021 / 2022 / 2023–2024
-- [ ] Baseline is described in code-realistic terms (we could implement it)
-- [ ] What-if scenarios have specific feature values, not generic words
-- [ ] At least 2 of the 5 limitations are acknowledged with consequence
-- [ ] PROMPTS.md exists in the repo (even if empty for now — will be populated by Wednesday)
+- [X] Decision context is one sentence, not a paragraph
+- [X] Target says exactly `is_top10` (not "Top-10" or "P(top10)")
+- [X] Temporal split shows three blocks: 2019–2021 / 2022 / 2023–2024
+- [X] Baseline is described in code-realistic terms (we could implement it)
+- [X] What-if scenarios have specific feature values, not generic words
+- [X] At least 2 of the 5 limitations are acknowledged with consequence
+- [X] PROMPTS.md exists in the repo (even if empty for now — will be populated by Wednesday)
