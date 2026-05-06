@@ -29,7 +29,7 @@ The strategy desk in charge of the pits, during a Friday evening meeting.
 
 **Primary metric:** Brier 0.132
 
-**Why this metric for this decision?** Be
+**Why this metric for this decision?** We choose Brier 0.132 as our primary metric because it directly measures the mean-squared error of predicted probabilities (rewarding both calibration and sharpness), is threshold‑independent for probability-based decisions, and 0.132 represents a meaningful improvement over the baseline that meets our calibration requirements for reliable P(top10) predictions.
 
 
 **Secondary metric (optional but recommended):** ROC-AUC 0.892
