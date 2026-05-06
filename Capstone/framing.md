@@ -30,12 +30,12 @@ The strategy desk in charge of the pits, during a Friday evening meeting.
 
 **Target (LOCKED for Hito 1):** `is_top10`
 
-**Primary metric:** F1
+**Primary metric:** Brier 0.132
 
-**Why this metric for this decision?** F1 catches precision-recall imbalance if the model is biased toward on class. F1 combines both and penalizes either extreme.s
+**Why this metric for this decision?** Be
 
 
-**Secondary metric (optional but recommended):** ____________________
+**Secondary metric (optional but recommended):** ROC-AUC 0.892
 
 **Temporal split (LOCKED for Hito 1):**
 - Train: seasons 2019, 2020, 2021
