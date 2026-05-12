@@ -13,7 +13,7 @@
 
 **What strategy decision is this tool supporting?**
 
-Choose amount of pit stops, depending on current grid placement.
+Choose amount of pit stops, depending on current grid placement (ex: midfield driver).
 
 **Who makes this decision?**
 The strategy desk in charge of the pits, during a Friday evening meeting.
