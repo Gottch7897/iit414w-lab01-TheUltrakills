@@ -97,4 +97,33 @@ USED - cell now executes without errors, meets checklist requirement for test-se
 ---
 
 
+## Entry [3] — Baseline for top 5 · [2026-05-13]
+
+**Context:**
+We needed a quick baseline to compare against our top 5 model.
+
+**Prompt(s):**
+# Include all iterations. Label Prompt 1, Prompt 2 (refinement), etc.
+Prompt 1: "create a simple baseline for the top 5 model to compare against"
+Prompt 2 (refinement): "justify the baseline you just added"
+
+**Relevant Output:**
+created a "Prevalence baseline (constant prediction = train positive rate)" and all the cells related to it.
+
+
+**Validation:**
+# Required. Describe specific tests — what you ran, on what data, what result.
+- Test 1: cell runs
+- Test 2: ran a similar baseline, got the same results.
+
+**Adaptations:**
+- Asked the AI to explain the baseline according to our strategy
+- Manually added the print against the Model top 5 for easier copy-paste into baseline_comparison.md
+
+**Final Decision:**
+Used: the baseline is simple and works for the scenario.
+
+---
+
+
 **Extended with documentation of how AI-assisted reasoning was used and validated for the model expansion specifically.**
