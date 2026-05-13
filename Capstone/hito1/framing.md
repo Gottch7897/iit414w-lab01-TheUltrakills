@@ -12,7 +12,6 @@
 ## 1. Decision Context
 
 **What strategy decision is this tool supporting?**
-
 Choose amount of pit stops, depending on current grid placement (ex: midfield driver).
 
 **Who makes this decision?**
