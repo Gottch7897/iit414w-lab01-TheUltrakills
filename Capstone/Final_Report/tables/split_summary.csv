@@ -1,0 +1,4 @@
+split,seasons,rows
+train,2019-2021,1132
+calibration,2022,426
+test,2023-2024,889

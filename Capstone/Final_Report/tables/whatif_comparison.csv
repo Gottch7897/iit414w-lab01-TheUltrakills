@@ -1,0 +1,3 @@
+scenario,grid_position,driver_prior3_avg_finish,constructor_prior3_avg_finish,driver_circuit_prior_avg,constructor_tier,circuit_type,n_stops,strategy_type,compound_sequence,predicted_is_top10_probability,predicted_is_top5_probability
+A_one_stop,4.0,5.0,5.0,10.5,midfield,permanent,1,one_stop,M-H,0.8927557822038654,0.7887849190210862
+B_two_stop,4.0,5.0,5.0,10.5,midfield,permanent,2,two_stop,M-H-S,0.8664854703030982,0.8113902998089635
