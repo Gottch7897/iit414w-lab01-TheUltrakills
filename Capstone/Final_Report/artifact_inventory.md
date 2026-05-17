@@ -13,16 +13,13 @@
 | `Capstone/Hito_2/leakage_audit.md` | Source for feature roles and excluded columns. |
 | `Capstone/Hito_2/mitigations.md` | Source for limitations and deployment-risk wording. |
 | `Capstone/decisions.md` | Source for all selected final-report and Demo Day checkpoint choices. |
-| `test/f1_strategy_race_level.csv` | Primary race-level dataset. |
+| `data/f1_strategy_race_level.csv` | Primary race-level dataset. |
 
 ## Regenerated Final Outputs
 
 | Artifact | Produced by |
 |---|---|
-| `Capstone/Final_Report/IIT414W_FinalReport_TheUltrakills.md` | `generate_final_report.py` |
-| `Capstone/Final_Report/IIT414W_FinalReport_TheUltrakills.pdf` | `generate_final_report.py` |
-| `IIT414W_FinalReport_TheUltrakills.pdf` | copied by `generate_final_report.py` for submission convenience |
-| `Capstone/Final_Report/tables/model_comparison.csv` | `generate_final_report.py` |
+| `Capstone/Final_Report/IIT414W_FinalReport_TheUltrakills.md` | `generate_final_report.py` | `Capstone/Final_Report/tables/model_comparison.csv` | `generate_final_report.py` |
 | `Capstone/Final_Report/tables/error_slices.csv` | `generate_final_report.py` |
 | `Capstone/Final_Report/tables/whatif_comparison.csv` | `generate_final_report.py` |
 | `Capstone/Final_Report/figures/calibration_is_top10.png` | `generate_final_report.py` |
@@ -40,9 +37,6 @@
 
 The final report title page names the release as `final-v1`. Practical workflow:
 
-1. Regenerate the report.
-2. Commit the final report package.
-3. Tag that commit as `final-v1`.
-4. Submit the tagged repo URL and the PDF generated from the same committed files.
+
 
 If the instructor requires a literal short hash on the title page, insert the tagged commit hash manually after tagging and document that the printed hash identifies the submitted release lineage.

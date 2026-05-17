@@ -4,7 +4,7 @@ This script rebuilds the locked Hito 2 evidence from the race-level dataset:
 the 2019-2021 / 2022 / 2023-2024 temporal split, logistic-regression models
 for is_top10 and is_top5, sigmoid calibration on 2022, metric tables,
 calibration plots, error slices, the approved what-if comparison, a Markdown
-report, and the submitted PDF.
+report.
 """
 
 from pathlib import Path
@@ -38,7 +38,6 @@ DATA_PATH = Path("test/f1_strategy_race_level.csv")
 OUT_DIR = Path("Capstone/Final_Report")
 FIG_DIR = OUT_DIR / "figures"
 TABLE_DIR = OUT_DIR / "tables"
-PDF_NAME = "IIT414W_FinalReport_TheUltrakills.pdf"
 MD_NAME = "IIT414W_FinalReport_TheUltrakills.md"
 
 
@@ -504,173 +503,6 @@ def add_table_page(pdf, title, table, note=None):
     plt.close(fig)
 
 
-def make_pdf(report_md, evidence, error_slices):
-    comparison = evidence["comparison"].copy()
-    whatif = evidence["whatif"].copy()
-    top10_model = comparison.query(
-        "target == 'is_top10' and approach == 'logistic_regression_calibrated'"
-    ).iloc[0]
-    top5_model = comparison.query(
-        "target == 'is_top5' and approach == 'logistic_regression_calibrated'"
-    ).iloc[0]
-
-    pdf_path = OUT_DIR / PDF_NAME
-    with PdfPages(pdf_path) as pdf:
-        title_body = (
-            "Conditional strategy choice depends on the target: the one-stop M-H "
-            "plan protects Top 10 probability, while the two-stop M-H-S plan improves "
-            "Top 5 upside in the approved Dutch GP scenario.\n\n"
-            f"Team: {TEAM_MEMBERS}\nCourse: {COURSE}\nDate: {DATE}\n"
-            f"Repo: {REPO_URL}\nCommit: {COMMIT}"
-        )
-        add_text_page(pdf, "F1 Race Strategy Advisor", title_body)
-
-        add_text_page(
-            pdf,
-            "1. Executive Summary",
-            "The advisor supports a race strategy engineer making a pre-race call after qualifying. "
-            "It compares one-stop and two-stop plans in a fixed driver-race context, reporting "
-            "calibrated probabilities for points security (is_top10) and stronger upside (is_top5). "
-            "In the Dutch GP scenario, the one-stop protects Top 10 probability, while the two-stop "
-            "improves Top 5 probability. The recommendation is conditional, not automatic.\n\n"
-            f"The locked is_top10 model has Brier {top10_model['brier_score']:.6f} and ROC-AUC "
-            f"{top10_model['roc_auc']:.6f}, close to but below the docent reference of Brier 0.132 "
-            "and ROC-AUC 0.892. The report therefore treats the model as useful decision support, "
-            "not as a deployed strategy oracle.",
-        )
-
-        add_text_page(
-            pdf,
-            "2. Problem Framing",
-            "The supported decision is a pre-race strategy call before lights out, after qualifying "
-            "information is available. The decision-maker is a race strategy engineer comparing "
-            "whether a selected driver-race context should prioritize a one-stop or two-stop plan. "
-            "The prediction unit is one driver in one race.\n\n"
-            "The primary target is is_top10; the expansion target is is_top5. Strategy fields are "
-            "scenario inputs, not ordinary pre-race predictors. They would be leakage if used as "
-            "observed post-race facts, but here they are user-controlled what-if values.",
-        )
-
-        add_text_page(
-            pdf,
-            "3. Data and Validation",
-            "The race-level dataset has 2,447 driver-race rows from 2019-2024. The locked temporal "
-            "split is train 2019-2021, calibration 2022, and final test 2023-2024. The feature audit "
-            "uses pre-race context plus scenario inputs and excludes outcomes, realized weather, "
-            "race incidents, DNF, and status columns from prediction.\n\n"
-            "Known limitations include short historical coverage, empty qualifying_time_s, coarse "
-            "safety-car indicators, and strategy choice confounding with car pace, driver quality, "
-            "traffic, weather, and race incidents.",
-        )
-
-        add_text_page(
-            pdf,
-            "4. Modeling Approach",
-            "The final narrative uses separate logistic-regression models per target. Numeric "
-            "features are imputed and standardized; categorical features are imputed and one-hot "
-            "encoded. Both targets use sigmoid/Platt calibration on 2022, selected because the "
-            "calibration block is small and a smooth calibrator is less likely to overfit than "
-            "isotonic calibration.\n\n"
-            "The model family is conservative and explainable. The cost is possible underfitting, "
-            "which helps explain why the Top 10 model is close to but below the docent reference.",
-        )
-
-        metric_table = comparison.copy()
-        docent = pd.DataFrame(
-            [
-                {
-                    "target": "is_top10",
-                    "approach": "docent_reference",
-                    "brier_score": 0.132,
-                    "log_loss": np.nan,
-                    "roc_auc": 0.892,
-                }
-            ]
-        )
-        add_table_page(
-            pdf,
-            "5. Results and Honest Comparison",
-            pd.concat([metric_table, docent], ignore_index=True),
-            "The Top 10 model improves strongly over the target-rate baseline but does not beat the docent floor. "
-            f"The Top 5 model has Brier {top5_model['brier_score']:.6f} and ROC-AUC {top5_model['roc_auc']:.6f}, "
-            "which supports the expansion target as a useful decision lens.",
-        )
-
-        for fig_name, title in [
-            ("calibration_is_top10.png", "Calibration Evidence: is_top10"),
-            ("calibration_is_top5.png", "Calibration Evidence: is_top5"),
-            ("whatif_disagreement.png", "What-if Disagreement"),
-        ]:
-            img = plt.imread(FIG_DIR / fig_name)
-            fig, ax = plt.subplots(figsize=(8.5, 11))
-            ax.imshow(img)
-            ax.axis("off")
-            fig.text(0.08, 0.95, title, fontsize=15, weight="bold", va="top")
-            pdf.savefig(fig)
-            plt.close(fig)
-
-        key_slices = error_slices[
-            (error_slices["slice_column"] == "constructor_tier")
-            | (
-                (error_slices["slice_column"] == "strategy_type")
-                & (error_slices["slice_value"] == "three_plus_stop")
-            )
-        ][
-            [
-                "target",
-                "slice_column",
-                "slice_value",
-                "rows",
-                "actual_rate",
-                "mean_predicted_probability",
-                "slice_brier_score",
-            ]
-        ].sort_values(["target", "slice_column", "slice_brier_score"], ascending=False)
-        add_table_page(
-            pdf,
-            "6. Error Analysis and What-if",
-            key_slices,
-            "The main failure modes are midfield Top 10 predictions, three-plus-stop Top 10 strategies, "
-            "and front-team Top 5 predictions. These are operational warnings, not reasons to hide the model.",
-        )
-
-        add_text_page(
-            pdf,
-            "7. Limitations and Risks",
-            "The strongest limitation is scenario dependence under regime shift and observational "
-            "confounding. Strategy choice is not random, so the what-if output is not causal proof. "
-            "Single-team deployment is also risky because the selected scenario is midfield, and "
-            "midfield Top 10 reliability is the weakest constructor-tier slice.\n\n"
-            "We do not recommend deploying this tool unless (1) the strategy desk limits it to "
-            "pre-race what-if comparisons with fixed driver-race context, (2) every recommendation "
-            "displays target-specific slice reliability for strategy type, circuit type, and constructor "
-            "tier, and (3) the team validates the model on a fresh race weekend or simulator backtest.",
-        )
-
-        add_text_page(
-            pdf,
-            "8. Reproducibility and AI Reflection",
-            "Run venv/bin/python Capstone/Final_Report/generate_final_report.py from the repository root "
-            "to regenerate the tables, figures, Markdown report, and PDF. The Hito 1 and Hito 2 source "
-            "artifacts remain in Capstone/ and all model random_state arguments use RANDOM_SEED = 414.\n\n"
-            "AI assistance was used for structure, prose, captions, critique, and Q&A drafting. Outputs "
-            "were validated against the locked Hito evidence. Suggestions that overstated causality or "
-            "claimed the Top 10 model beat the docent reference were rejected.",
-        )
-
-        add_text_page(
-            pdf,
-            "9. References",
-            "IIT414W course capstone brief and Canvas rubrics. (2026). F1 Race Strategy Advisor.\n\n"
-            "Course dataset: f1_strategy_race_level.csv, seasons 2019-2024.\n\n"
-            "FastF1 project documentation and historical Formula 1 timing data sources.\n\n"
-            "Jolpica F1 API documentation and historical race metadata sources.\n\n"
-            "scikit-learn developers. (2026). Logistic regression, calibration, and model evaluation documentation.",
-        )
-
-    shutil.copy2(pdf_path, Path(PDF_NAME))
-
-
 def main():
     ensure_dirs()
     df = pd.read_csv(DATA_PATH)
@@ -679,10 +511,7 @@ def main():
     save_figures(evidence, error_slices)
     report_md = markdown_report(evidence, error_slices)
     (OUT_DIR / MD_NAME).write_text(report_md, encoding="utf-8")
-    make_pdf(report_md, evidence, error_slices)
     print(f"Wrote {(OUT_DIR / MD_NAME)}")
-    print(f"Wrote {(OUT_DIR / PDF_NAME)}")
-    print(f"Wrote {PDF_NAME}")
 
 
 if __name__ == "__main__":
